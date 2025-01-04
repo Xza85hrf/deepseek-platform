@@ -1,0 +1,86 @@
+{
+    "rules": [
+        {
+            "name": "Headers",
+            "patterns": [
+                "^#{1,6}\\s.*$"
+            ],
+            "color": {
+                "dark": "#ff79c6",
+                "light": "#d73a49"
+            },
+            "bold": true
+        },
+        {
+            "name": "Bold Text",
+            "patterns": [
+                "\\*\\*[^*]+\\*\\*",
+                "__[^_]+__"
+            ],
+            "color": {
+                "dark": "#f1fa8c",
+                "light": "#032f62"
+            },
+            "bold": true
+        },
+        {
+            "name": "Italic Text",
+            "patterns": [
+                "\\*[^*]+\\*",
+                "_[^_]+_"
+            ],
+            "color": {
+                "dark": "#6272a4",
+                "light": "#6a737d"
+            },
+            "italic": true
+        },
+        {
+            "name": "Code Blocks",
+            "patterns": [
+                "`[^`]+`",
+                "```[^`]*```"
+            ],
+            "color": {
+                "dark": "#bd93f9",
+                "light": "#005cc5"
+            },
+            "background": {
+                "dark": "#44475a",
+                "light": "#f6f8fa"
+            }
+        },
+        {
+            "name": "Links",
+            "patterns": [
+                "\\[.*?\\]\\(.*?\\)"
+            ],
+            "color": {
+                "dark": "#50fa7b",
+                "light": "#6f42c1"
+            }
+        },
+        {
+            "name": "Lists",
+            "patterns": [
+                "^\\s*[-*+]\\s.*$",
+                "^\\s*\\d+\\.\\s.*$"
+            ],
+            "color": {
+                "dark": "#ffb86c",
+                "light": "#e36209"
+            }
+        },
+        {
+            "name": "Blockquotes",
+            "patterns": [
+                "^>\\s.*$"
+            ],
+            "color": {
+                "dark": "#8be9fd",
+                "light": "#22863a"
+            },
+            "italic": true
+        }
+    ]
+}

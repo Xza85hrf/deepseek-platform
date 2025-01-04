@@ -1,0 +1,151 @@
+import pytest
+from unittest.mock import AsyncMock, patch
+from app import create_app, db
+from models import AgentInteraction
+from deepseek_client import AssistantResponse
+from flask_socketio import SocketIOTestClient
+
+@pytest.fixture
+def app():
+    app = create_app()
+    app.config.update({
+        'TESTING': True,
+        'SQLALCHEMY_DATABASE_URI': 'sqlite:///:memory:'
+    })
+
+    with app.app_context():
+        db.create_all()
+        yield app
+        db.drop_all()
+
+@pytest.fixture
+def client(app):
+    return app.test_client()
+
+@pytest.fixture
+def socket_client(app):
+    from app import socketio
+    return SocketIOTestClient(app, socketio)
+
+@pytest.mark.asyncio
+async def test_delegate_to_specialized_agent(app):
+    from agents import delegate_to_specialized_agent
+
+    with app.app_context():
+        # Test code review request
+        code_review_msg = "Can you review this code for best practices?"
+        mock_response = "code_reviewer"
+
+        with patch('deepseek_client.DeepSeekClient.get_completion', 
+                  AsyncMock(return_value=mock_response)):
+            agent_type = await delegate_to_specialized_agent(code_review_msg)
+            assert agent_type in ["code_reviewer", "supervisor"]
+
+        # Test debugging request
+        debug_msg = "Why is my code throwing this error?"
+        mock_response = "debugger"
+
+        with patch('deepseek_client.DeepSeekClient.get_completion', 
+                  AsyncMock(return_value=mock_response)):
+            agent_type = await delegate_to_specialized_agent(debug_msg)
+            assert agent_type in ["debugger", "supervisor"]
+
+        # Test optimization request
+        optimize_msg = "How can I make this code run faster?"
+        mock_response = "optimizer"
+
+        with patch('deepseek_client.DeepSeekClient.get_completion', 
+                  AsyncMock(return_value=mock_response)):
+            agent_type = await delegate_to_specialized_agent(optimize_msg)
+            assert agent_type in ["optimizer", "supervisor"]
+
+@pytest.mark.asyncio
+async def test_handle_agent_message(app, socket_client):
+    from agents import handle_agent_message
+
+    with app.app_context():
+        test_message = "Review this code for best practices"
+        mock_completion_response = "code_reviewer"
+        mock_agent_response = "I'll review your code"
+
+        with patch('deepseek_client.DeepSeekClient.get_completion', 
+                  AsyncMock(side_effect=[mock_completion_response, mock_agent_response])), \
+             patch('agents.emit') as mock_emit:
+
+            with app.test_request_context('/'):
+                result = await handle_agent_message({
+                    'message': test_message
+                })
+
+                # Verify the response
+                assert result['status'] == 'success'
+
+                # Verify database record
+                interaction = AgentInteraction.query.first()
+                assert interaction is not None
+                assert interaction.message == test_message
+                assert interaction.status == 'completed'
+                assert interaction.agent_type == 'code_reviewer'
+
+                # Verify emit was called
+                mock_emit.assert_called_with(
+                    'agent_response', 
+                    interaction.to_dict(), 
+                    namespace='/', 
+                    broadcast=True
+                )
+
+@pytest.mark.asyncio
+async def test_handle_agent_message_error(app, socket_client):
+    from agents import handle_agent_message
+
+    with app.app_context():
+        test_message = "Test error handling"
+
+        with patch('deepseek_client.DeepSeekClient.get_completion', 
+                  AsyncMock(side_effect=Exception("API Error"))), \
+             patch('agents.emit') as mock_emit:
+
+            with app.test_request_context('/'):
+                result = await handle_agent_message({
+                    'message': test_message
+                })
+
+                # Verify error response
+                assert 'error' in result
+                assert 'API Error' in result['error']
+
+                # Verify database record
+                interaction = AgentInteraction.query.first()
+                assert interaction is not None
+                assert interaction.message == test_message
+                assert interaction.status == 'failed'
+                assert "Error processing request" in interaction.response
+
+                # Verify error was emitted
+                mock_emit.assert_called_with(
+                    'agent_response', 
+                    interaction.to_dict(),
+                    namespace='/',
+                    broadcast=True
+                )
+
+def test_agent_interaction_model(app):
+    with app.app_context():
+        # Test model creation
+        interaction = AgentInteraction(
+            agent_type='supervisor',
+            message='Test message',
+            status='processing'
+        )
+
+        # Add to database
+        db.session.add(interaction)
+        db.session.commit()
+
+        # Verify saved state
+        saved = AgentInteraction.query.first()
+        assert saved is not None
+        assert saved.agent_type == 'supervisor'
+        assert saved.message == 'Test message'
+        assert saved.status == 'processing'

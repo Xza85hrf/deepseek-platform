@@ -1,0 +1,422 @@
+/* Material Design 3 Dark Theme */
+
+/* Base styles with elevation */
+QWidget {
+    background-color: #1C1B1F;
+    color: #E6E1E5;
+    font-family: "Segoe UI Variable", "Segoe UI", system-ui, sans-serif;
+    font-size: 14px;
+}
+
+/* Ensure text visibility */
+QLabel, QPushButton, QLineEdit {
+    color: #E6E1E5;
+}
+
+/* Ensure button text remains visible */
+QPushButton {
+    color: #FFFFFF;
+}
+
+/* File explorer background fix */
+QTreeView, QListView {
+    background-color: #1C1B1F;
+    color: #E6E1E5;
+}
+
+/* Toolbar with elevation */
+QWidget[accessibleName="toolbar"] {
+    background-color: #1E1E1E;
+    border-bottom: 1px solid #938F99;
+    min-height: 64px;
+    padding: 0 24px;
+}
+
+/* Elevated buttons with state layers */
+QPushButton {
+    background-color: #BB86FC;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 24px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+QPushButton:hover {
+    background-color: #CBB2FC;
+    color: #1C1B1F;
+}
+
+QPushButton:pressed {
+    background-color: #9965DB;
+    color: #FFFFFF;
+}
+
+QPushButton:checked {
+    background-color: #4F378B;
+    color: #EADDFF;
+}
+
+/* Icon buttons with state layers */
+QPushButton[flat="true"] {
+    background-color: transparent;
+    color: #E6E1E5;
+    padding: 12px;
+    border-radius: 50%;
+    min-width: 32px;
+    min-height: 32px;
+}
+
+QPushButton[flat="true"]:hover {
+    background-color: rgba(230, 225, 229, 0.12);
+}
+
+QPushButton[flat="true"]:pressed {
+    background-color: rgba(230, 225, 229, 0.16);
+}
+
+/* Ensure icon buttons are visible */
+QPushButton[accessibleName="theme_button"],
+QPushButton[accessibleName="chat_button"],
+QPushButton[accessibleName="terminal_button"],
+QPushButton[accessibleName="compare_button"] {
+    background-color: transparent;
+    color: #E6E1E5;
+    border: none;
+    border-radius: 50%;
+    min-width: 32px;
+    min-height: 32px;
+}
+
+QPushButton[accessibleName="theme_button"]:hover,
+QPushButton[accessibleName="chat_button"]:hover,
+QPushButton[accessibleName="terminal_button"]:hover,
+QPushButton[accessibleName="compare_button"]:hover {
+    background-color: rgba(230, 225, 229, 0.12);
+}
+
+QPushButton[accessibleName="theme_button"]:pressed,
+QPushButton[accessibleName="chat_button"]:pressed,
+QPushButton[accessibleName="terminal_button"]:pressed,
+QPushButton[accessibleName="compare_button"]:pressed {
+    background-color: rgba(230, 225, 229, 0.16);
+}
+
+/* Modern ComboBox */
+QComboBox {
+    background-color: rgba(73, 69, 79, 0.5);
+    color: #E6E1E5;
+    border: 1px solid #938F99;
+    border-radius: 12px;
+    padding: 12px 16px;
+    min-width: 120px;
+}
+
+QComboBox:hover {
+    border-color: #BB86FC;
+    background-color: rgba(73, 69, 79, 0.6);
+}
+
+QComboBox::drop-down {
+    border: none;
+    width: 24px;
+}
+
+/* TextEdit with elevation */
+QTextEdit {
+    background-color: #1E1E1E;
+    color: #E6E1E5;
+    border: 1px solid #938F99;
+    border-radius: 12px;
+    padding: 16px;
+}
+
+QTextEdit::selection {
+    background-color: #BB86FC;
+    color: #381E72;
+}
+
+/* Modern Splitter */
+QSplitter::handle {
+    background-color: #938F99;
+    width: 1px;
+}
+
+QSplitter::handle:hover {
+    background-color: #BB86FC;
+}
+
+/* Refined ScrollBar */
+QScrollBar:vertical {
+    background-color: transparent;
+    width: 12px;
+    margin: 0;
+}
+
+QScrollBar::handle:vertical {
+    background-color: #49454F;
+    border-radius: 6px;
+    min-height: 48px;
+}
+
+QScrollBar::handle:vertical:hover {
+    background-color: #BB86FC;
+}
+
+QScrollBar::add-line:vertical,
+QScrollBar::sub-line:vertical {
+    height: 0;
+}
+
+/* Status label with proper contrast */
+QLabel[accessibleName="status_label"] {
+    color: #CAC4D0;
+    font-size: 12px;
+    padding: 4px 12px;
+}
+
+/* File explorer with state layers */
+QTreeView, QListView {
+    background-color: #1C1B1F;
+    color: #E6E1E5;
+    border: none;
+    outline: none;
+    padding: 8px;
+}
+
+QTreeView::item, QListView::item {
+    padding: 8px;
+    border-radius: 8px;
+    margin: 2px 0;
+    color: #E6E1E5;
+}
+
+QTreeView::item:selected, QListView::item:selected {
+    background-color: #4F378B;
+    color: #EADDFF;
+}
+
+QTreeView::item:hover, QListView::item:hover {
+    background-color: rgba(230, 225, 229, 0.12);
+}
+
+QWidget[accessibleName="file_explorer_container"] {
+    background-color: #1C1B1F;
+    color: #E6E1E5;
+}
+
+/* Terminal with proper contrast */
+QWidget[accessibleName="terminal"] {
+    background-color: #141414;
+    color: #E6E1E5;
+    font-family: "Cascadia Code", "JetBrains Mono", monospace;
+    padding: 16px;
+    border-top: 1px solid #938F99;
+}
+
+/* Chat widget with elevation */
+QWidget[accessibleName="chat_widget"] {
+    background-color: #1C1B1F;
+    border-left: 1px solid #938F99;
+    color: #E6E1E5;
+}
+
+/* Chat messages */
+QLabel[accessibleName="chat_message"] {
+    background-color: #2C2C2C;
+    color: #E6E1E5;
+    border-radius: 8px;
+    padding: 12px;
+    margin: 4px 8px;
+}
+
+/* Chat input field */
+QLineEdit[accessibleName="message_input"] {
+    background-color: #2C2C2C;
+    color: #E6E1E5;
+    border: 1px solid #938F99;
+    border-radius: 8px;
+    padding: 8px 12px;
+    margin: 4px;
+}
+
+QLineEdit[accessibleName="message_input"]:focus {
+    border-color: #BB86FC;
+}
+
+/* Send button */
+QPushButton[accessibleName="send_button"] {
+    background-color: #BB86FC;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 16px;
+    margin: 4px;
+    font-weight: bold;
+}
+
+QPushButton[accessibleName="send_button"]:hover {
+    background-color: #CBB2FC;
+}
+
+QPushButton[accessibleName="send_button"]:pressed {
+    background-color: #9965DB;
+}
+
+/* Code comparison with proper contrast */
+QWidget[accessibleName="comparison_widget"] {
+    background-color: #1C1B1F;
+    color: #E6E1E5;
+}
+
+/* Focus states */
+QWidget:focus {
+    border: 2px solid #BB86FC;
+    border-radius: 4px;
+}
+
+/* Error states */
+QLineEdit[error="true"],
+QTextEdit[error="true"] {
+    border-color: #CF6679;
+}
+
+/* Secondary buttons */
+QPushButton[secondary="true"] {
+    background-color: #03DAC6;
+    color: #000000;
+}
+
+QPushButton[secondary="true"]:hover {
+    background-color: #33DFD0;
+}
+
+QPushButton[secondary="true"]:pressed {
+    background-color: #00B3A6;
+}
+
+/* Code editor with proper contrast */
+QTextEdit[accessibleName="code_editor"] {
+    font-family: "Cascadia Code", "JetBrains Mono", monospace;
+    font-size: 14px;
+    line-height: 1.6;
+    background-color: #141414;
+    color: #E6E1E5;
+    padding: 16px;
+}
+
+/* Message input with elevation */
+QTextEdit[accessibleName="message_input"] {
+    background-color: #2C2C2C;
+    border: 1px solid #938F99;
+    border-radius: 12px;
+    padding: 12px;
+    max-height: 120px;
+    color: #E6E1E5;
+}
+
+/* Chat history with proper spacing */
+QTextEdit[accessibleName="chat_history"] {
+    background-color: #1C1B1F;
+    border: none;
+    padding: 24px;
+    color: #E6E1E5;
+}
+
+/* Title label */
+QLabel[accessibleName="title_label"] {
+    font-size: 16px;
+    font-weight: bold;
+    color: #E6E1E5;
+    padding: 8px;
+}
+
+/* File button */
+QPushButton[accessibleName="file_button"] {
+    padding: 5px 10px;
+    border: 1px solid #938F99;
+    border-radius: 4px;
+    background-color: #BB86FC;
+    color: #1C1B1F;
+}
+
+QPushButton[accessibleName="file_button"]:hover {
+    background-color: #CBB2FC;
+    border-color: #BB86FC;
+}
+
+QPushButton[accessibleName="file_button"]:pressed {
+    background-color: #9965DB;
+    color: #FFFFFF;
+}
+
+/* Typing indicator */
+QLabel[accessibleName="typing_indicator"] {
+    color: #938F99;
+    font-style: italic;
+    padding: 4px;
+}
+
+/* Progress bar */
+QProgressBar {
+    border: 1px solid #938F99;
+    border-radius: 4px;
+    text-align: center;
+    background-color: #2C2C2C;
+}
+
+QProgressBar::chunk {
+    background-color: #BB86FC;
+}
+
+/* Code blocks */
+QTextEdit[accessibleName="code_block"] {
+    background-color: #272822;
+    border-radius: 4px;
+    padding: 8px;
+    font-family: "Cascadia Code", "JetBrains Mono", monospace;
+    color: #E6E1E5;
+}
+
+QLabel[accessibleName="code_text"] {
+    font-family: "Cascadia Code", "JetBrains Mono", monospace;
+    background-color: #2C2C2C;
+    padding: 8px;
+    border-radius: 4px;
+    color: #E6E1E5;
+}
+
+/* Enhanced chat components */
+QScrollArea[accessibleName="chat_scroll_area"] {
+    background-color: #1C1B1F;
+    border: none;
+}
+
+QWidget[accessibleName="chat_container"] {
+    background-color: #1C1B1F;
+}
+
+QFrame[accessibleName="message_bubble"] {
+    background-color: #2C2C2C;
+    border-radius: 8px;
+    padding: 12px;
+    margin: 4px 8px;
+}
+
+QFrame[accessibleName="message_bubble"][sender="user"] {
+    background-color: #BB86FC;
+    color: #FFFFFF;
+    margin-left: 48px;
+}
+
+QFrame[accessibleName="message_bubble"][sender="assistant"] {
+    background-color: #2C2C2C;
+    color: #E6E1E5;
+    margin-right: 48px;
+}
+
+QLabel[accessibleName="message_timestamp"] {
+    color: #938F99;
+    font-size: 12px;
+}

@@ -1,0 +1,30 @@
+{
+    "Phase-wise Instructions": [
+        {
+            "Phase": "Setup",
+            "Action": "Set up a new project by performing the following actions:\n1. Create a new directory for the project and navigate into it\n2. Initialize a git repository using `git init`\n3. Create a .gitignore file and include entries for __pycache__, .DS_Store, and virtual environment folders\n4. Set up a virtual environment using `python -m venv env` and activate it\n5. Install required packages and generate a requirements.txt file with `pip freeze > requirements.txt`\n6. Organize the project structure into subdirectories such as src, tests, config, and data\n7. Draft a comprehensive README.md file that includes project description, installation instructions, usage examples, and contribution guidelines\n8. Configure any necessary environment variables or settings files\n9. Commit the initial project setup to the git repository with a descriptive commit message",
+            "Confirmation": "Confirm that you will follow these steps to set up new coding projects and integrate these processes into your own workflow."
+        },
+        {
+            "Phase": "Development",
+            "Action": "Develop the project by:\n1. Writing clean, efficient, and well-documented code adhering to PEP 8 standards\n2. Breaking down the project into manageable functions and classes\n3. Using meaningful variable and function names\n4. Implementing error handling for exceptions and edge cases\n5. Writing comprehensive unit tests for each function or class\n6. Integrating new code with existing systems or APIs\n7. Regularly committing changes with descriptive messages and pushing to a feature branch\n8. Collaborating with team members through pull requests and feedback incorporation",
+            "Confirmation": "Confirm that you will adhere to these development practices to ensure code quality and maintainability."
+        },
+        {
+            "Phase": "Testing",
+            "Action": "Conduct testing by:\n1. Setting up a testing framework like pytest or Jest\n2. Writing unit tests, integration tests, and end-to-end tests\n3. Ensuring tests are independent, repeatable, and provide clear error messages\n4. Using a code coverage tool to aim for at least 80% coverage\n5. Running tests frequently to catch bugs early\n6. Refactoring code for improved testability and maintainability",
+            "Confirmation": "Confirm that you will implement these testing practices to ensure code reliability."
+        },
+        {
+            "Phase": "Deployment",
+            "Action": "Prepare for deployment by:\n1. Containerizing the application using Docker\n2. Setting up a CI/CD pipeline with GitHub Actions, Jenkins, or GitLab CI\n3. Configuring the production environment on a cloud platform like AWS, Azure, or Google Cloud\n4. Implementing environment-specific configurations\n5. Monitoring application performance and logs with tools like Prometheus, Grafana, or Cloud Monitoring\n6. Planning for scalability with load balancers and optimization techniques",
+            "Confirmation": "Confirm that you will follow these deployment practices to ensure smooth and scalable application deployment."
+        },
+        {
+            "Phase": "Maintenance",
+            "Action": "Maintain the application by:\n1. Establishing a workflow for updates, bug fixes, and feature enhancements\n2. Using issue tracking tools like Jira or GitHub Issues\n3. Implementing a pull request review process\n4. Keeping the codebase up-to-date with library versions and security patches\n5. Documenting changes and updates\n6. Monitoring performance and user feedback for improvements\n7. Ensuring application security with best practices",
+            "Confirmation": "Confirm that you will maintain the application according to these guidelines to ensure longevity and security."
+        }
+    ],
+    "Improvements": []
+}

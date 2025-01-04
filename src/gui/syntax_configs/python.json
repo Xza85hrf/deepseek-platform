@@ -1,0 +1,71 @@
+{
+    "rules": [
+        {
+            "name": "Keywords",
+            "patterns": [
+                "\\b(and|as|assert|async|await|break|class|continue|def|del|elif|else|except|finally|for|from|global|if|import|in|is|lambda|nonlocal|not|or|pass|raise|return|try|while|with|yield)\\b"
+            ],
+            "color": {
+                "dark": "#ff79c6",
+                "light": "#d73a49"
+            },
+            "bold": true
+        },
+        {
+            "name": "Strings",
+            "patterns": [
+                "\".*?\"",
+                "'.*?'",
+                "\"\"\".*?\"\"\"",
+                "'''.*?'''"
+            ],
+            "color": {
+                "dark": "#f1fa8c",
+                "light": "#032f62"
+            }
+        },
+        {
+            "name": "Comments",
+            "patterns": [
+                "#.*$"
+            ],
+            "color": {
+                "dark": "#6272a4",
+                "light": "#6a737d"
+            },
+            "italic": true
+        },
+        {
+            "name": "Numbers",
+            "patterns": [
+                "\\b\\d+(\\.\\d+)?\\b"
+            ],
+            "color": {
+                "dark": "#bd93f9",
+                "light": "#005cc5"
+            }
+        },
+        {
+            "name": "Functions",
+            "patterns": [
+                "\\bdef\\s+(\\w+)",
+                "\\bclass\\s+(\\w+)"
+            ],
+            "color": {
+                "dark": "#50fa7b",
+                "light": "#6f42c1"
+            },
+            "bold": true
+        },
+        {
+            "name": "Decorators",
+            "patterns": [
+                "@\\w+"
+            ],
+            "color": {
+                "dark": "#ffb86c",
+                "light": "#e36209"
+            }
+        }
+    ]
+}

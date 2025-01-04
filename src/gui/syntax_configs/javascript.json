@@ -1,0 +1,72 @@
+{
+    "rules": [
+        {
+            "name": "Keywords",
+            "patterns": [
+                "\\b(break|case|catch|class|const|continue|debugger|default|delete|do|else|export|extends|finally|for|function|if|import|in|instanceof|new|return|super|switch|this|throw|try|typeof|var|void|while|with|yield)\\b"
+            ],
+            "color": {
+                "dark": "#ff79c6",
+                "light": "#d73a49"
+            },
+            "bold": true
+        },
+        {
+            "name": "Strings",
+            "patterns": [
+                "\".*?\"",
+                "'.*?'",
+                "`.*?`"
+            ],
+            "color": {
+                "dark": "#f1fa8c",
+                "light": "#032f62"
+            }
+        },
+        {
+            "name": "Comments",
+            "patterns": [
+                "//.*$",
+                "/\\*.*?\\*/"
+            ],
+            "color": {
+                "dark": "#6272a4",
+                "light": "#6a737d"
+            },
+            "italic": true
+        },
+        {
+            "name": "Numbers",
+            "patterns": [
+                "\\b\\d+(\\.\\d+)?\\b"
+            ],
+            "color": {
+                "dark": "#bd93f9",
+                "light": "#005cc5"
+            }
+        },
+        {
+            "name": "Functions",
+            "patterns": [
+                "\\bfunction\\s+(\\w+)",
+                "\\bclass\\s+(\\w+)",
+                "\\b(\\w+)\\s*=\\s*\\(.*?\\)\\s*=>"
+            ],
+            "color": {
+                "dark": "#50fa7b",
+                "light": "#6f42c1"
+            },
+            "bold": true
+        },
+        {
+            "name": "Template Literals",
+            "patterns": [
+                "\\$\\{[^}]*\\}"
+            ],
+            "color": {
+                "dark": "#ffb86c",
+                "light": "#e36209"
+            }
+        }
+    ]
+}
